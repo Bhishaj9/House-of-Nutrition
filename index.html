@@ -75,7 +75,7 @@
     <nav class="sticky top-0 z-50 w-full backdrop-blur-xl bg-background-light/80 dark:bg-background-dark/80 border-b border-black/5 dark:border-white/5 transition-all duration-300">
       <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
         <a class="flex items-center gap-2" href="/">
-          <img src="Gemini_Generated_Image_pfdk9npfdk9npfdk.png" alt="House of Nutrition logo" class="h-[40px] w-auto object-contain" />
+          <img src="Gemini_Generated_Image_pfdk9npfdk9npfdk.png" alt="House of Nutrition logo" class="max-h-[40px] w-auto object-contain" />
           <span class="font-bold text-lg tracking-tight">House of Nutrition</span>
         </a>
         <a
@@ -111,7 +111,7 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-1 gap-3 w-full pt-6">
+          <div class="grid grid-cols-1 gap-y-4 w-full pt-8">
             <a
               class="w-full bg-primary text-background-dark font-bold text-lg py-4 px-6 rounded-full flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(200,249,6,0.25)] active:scale-[0.98] transition-all"
               href="https://maps.app.goo.gl/s5VfsGq6n6ETMK8d6"
@@ -133,6 +133,8 @@
             <a
               class="w-full text-white/90 hover:text-primary font-medium text-base py-3 px-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
               href="https://www.instagram.com/house_of_nutrition_atrauli"
+              data-intent-href="intent://instagram.com/_u/house_of_nutrition_atrauli/#Intent;package=com.instagram.android;scheme=https;end"
+              data-fallback-href="https://www.instagram.com/house_of_nutrition_atrauli"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -144,6 +146,8 @@
             <a
               class="w-full text-white/90 hover:text-primary font-medium text-base py-3 px-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
               href="https://www.instagram.com/anikansh"
+              data-intent-href="intent://instagram.com/_u/anikansh/#Intent;package=com.instagram.android;scheme=https;end"
+              data-fallback-href="https://www.instagram.com/anikansh"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -214,7 +218,7 @@
             </div>
             <div class="flex flex-wrap gap-3">
               <a
-                class="bg-primary text-background-dark font-semibold text-sm px-4 py-2 rounded-full flex items-center gap-2"
+                class="w-full bg-primary text-background-dark font-semibold text-sm px-4 py-2 rounded-full flex items-center justify-center gap-2"
                 href="https://maps.app.goo.gl/s5VfsGq6n6ETMK8d6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -223,7 +227,7 @@
                 Get Directions
               </a>
               <a
-                class="text-primary text-sm font-semibold inline-flex items-center gap-1"
+                class="w-full text-primary text-sm font-semibold inline-flex items-center justify-center gap-1"
                 href="https://maps.app.goo.gl/s5VfsGq6n6ETMK8d6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -242,8 +246,10 @@
       <p class="text-gray-600 text-xs mt-1">Authorized Dealer • 100% Authentic</p>
       <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 px-4">
         <a
-          class="text-primary text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform"
-          href="https://www.instagram.com/house_of_nutrition_atrauli?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw=="
+          class="w-full text-primary text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform"
+          href="https://www.instagram.com/house_of_nutrition_atrauli"
+          data-intent-href="intent://instagram.com/_u/house_of_nutrition_atrauli/#Intent;package=com.instagram.android;scheme=https;end"
+          data-fallback-href="https://www.instagram.com/house_of_nutrition_atrauli"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -253,8 +259,10 @@
           Store Instagram
         </a>
         <a
-          class="text-primary text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform"
-          href="https://www.instagram.com/anikansh?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw=="
+          class="w-full text-primary text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform"
+          href="https://www.instagram.com/anikansh"
+          data-intent-href="intent://instagram.com/_u/anikansh/#Intent;package=com.instagram.android;scheme=https;end"
+          data-fallback-href="https://www.instagram.com/anikansh"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -265,5 +273,16 @@
         </a>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        document.querySelectorAll("a[data-intent-href]").forEach((link) => {
+          const intentHref = link.getAttribute("data-intent-href");
+          const fallbackHref = link.getAttribute("data-fallback-href") || link.getAttribute("href");
+          link.setAttribute("href", isAndroid ? intentHref : fallbackHref);
+        });
+      });
+    </script>
   </body>
 </html>
